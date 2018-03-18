@@ -1,0 +1,36 @@
+USAGE OF K-MEANS:
+You can run k-means in two ways
+If you have a file with your data then the correct usage is:
+
+java Main file.ext k algorithmType
+
+k is the number of means you want to identify and can take any integer value > 0
+
+a file with the txt extension must contain the following format:
+First line: number of points
+All other lines, x y pairs of doubles seperated by whitespace.
+example:
+5
+2	2
+1	3.3
+2.3	3.4
+3.1	2.1
+44 3.0
+
+AlgorithmType must be either 2D, PPM, PPME, PPMES
+
+2D: Only runs with txt files on 2D datasets. Outputs to out.txt. Runs 100 iterations.
+
+PPM: Only runs with ppm files. Uses duplicate points, may produce image with less colours than k requested. Runs 100 iterations.
+
+PPME: Only runs with ppm files. Does not use duplicate points, misses much less often than PPM. Runs 100 iterations
+
+PPMES: Only runs with ppm files. Uses PPME but prints out a ppm to the output directory on every iteration. Runs 100 iterations
+
+USAGE WITH .JPG FILE TYPE:
+Usage with the .JPG filetype is identical to usage with .ppm format except you need to use KmeansImage.sh. Your JPG will be converted to an uncompressed ppm called in.ppm and then will have K-means run on it. Do not change any of your other arguments. It will also open out.ppm when k-means is complete.
+
+OUTPUT/MASSCONVERT.SH
+calling ./massconvert.sh *.ppm will convert all .ppm files in the output directory to .jpg files making them easier to move around.
+
+
